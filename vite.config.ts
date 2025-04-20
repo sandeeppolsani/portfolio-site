@@ -7,4 +7,22 @@ export default defineConfig({
   optimizeDeps: {
     exclude: ['lucide-react'],
   },
+  build: {
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          vendor: ['react', 'react-dom', 'react-router-dom', 'framer-motion'],
+        },
+      },
+    },
+  },
+  server: {
+    host: true,
+    port: 3000,
+    cors: {
+      origin: ['https://sandeeppolsani.online'],
+      credentials: true,
+    },
+    allowedHosts: ['sandeeppolsani.online'],
+  },
 });
